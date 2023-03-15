@@ -1,0 +1,1708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.9.13 on win32)" generated="20230315 16:33:47.372" rpa="false" schemaversion="3">
+<suite id="s1" name="Currency" source="C:\Users\hewer\projets\expleo\Tests\Currency.robot">
+<test id="s1-t1" name="Scenario 1: Access site" line="15">
+<for flavor="IN">
+<var>${convert}</var>
+<value>@{converts}</value>
+<iter>
+<var name="${convert}">50</var>
+<kw name="Open Site" library="Currency_Steps">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://www.xe.com/currencyconverter/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230315 16:33:47.577" level="INFO">Opening browser 'chrome' to base url 'https://www.xe.com/currencyconverter/'.</msg>
+<status status="PASS" starttime="20230315 16:33:47.577" endtime="20230315 16:33:52.131"/>
+</kw>
+<status status="PASS" starttime="20230315 16:33:47.576" endtime="20230315 16:33:52.131"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Home.input_amount}</arg>
+<arg>${convert}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230315 16:33:52.132" level="INFO">Typing text '50' into text field 'id:amount'.</msg>
+<status status="PASS" starttime="20230315 16:33:52.131" endtime="20230315 16:33:52.286"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Home.input_from_currency}</arg>
+<arg>EUR</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230315 16:33:52.287" level="INFO">Typing text 'EUR' into text field 'id:midmarketFromCurrency'.</msg>
+<status status="PASS" starttime="20230315 16:33:52.286" endtime="20230315 16:33:52.495"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.ul_from_currency_listbox}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:33:52.495" endtime="20230315 16:33:52.519"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Home.ul_from_currency_listbox}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:33:52.520" level="INFO">Clicking element '//li[@id='midmarketFromCurrency-option-0']'.</msg>
+<status status="PASS" starttime="20230315 16:33:52.519" endtime="20230315 16:33:52.588"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Home.input_to_currency}</arg>
+<arg>GBP</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230315 16:33:52.589" level="INFO">Typing text 'GBP' into text field 'id:midmarketToCurrency'.</msg>
+<status status="PASS" starttime="20230315 16:33:52.589" endtime="20230315 16:33:52.706"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.ul_to_currency_listbox}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:33:52.706" endtime="20230315 16:33:52.757"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Home.ul_to_currency_listbox}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:33:52.758" level="INFO">Clicking element '//li[@id='midmarketToCurrency-option-0']'.</msg>
+<status status="PASS" starttime="20230315 16:33:52.757" endtime="20230315 16:33:52.826"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.button_convert}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:33:52.826" endtime="20230315 16:33:52.845"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Home.button_convert}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:33:52.846" level="INFO">Clicking element '(//button[contains(text(), "Convert")])[3]'.</msg>
+<status status="PASS" starttime="20230315 16:33:52.846" endtime="20230315 16:33:53.096"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230315 16:33:56.103" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230315 16:33:53.096" endtime="20230315 16:33:56.103"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.euro_value}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:33:56.103" endtime="20230315 16:33:56.136"/>
+</kw>
+<kw name="Calculation Result" library="Currency_Steps">
+<arg>${convert}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elem}</var>
+<arg>${Home.euro_value}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:33:56.152" level="INFO">${elem} = 1 EUR = 0.877579 GBP</msg>
+<status status="PASS" starttime="20230315 16:33:56.137" endtime="20230315 16:33:56.152"/>
+</kw>
+<kw name="Split String From Right" library="String">
+<var>@{convert_euro}</var>
+<arg>${elem}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` starting from right.</doc>
+<msg timestamp="20230315 16:33:56.153" level="INFO">@{convert_euro} = [ 1 | EUR | = | 0.877579 | GBP ]</msg>
+<status status="PASS" starttime="20230315 16:33:56.152" endtime="20230315 16:33:56.153"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${euro_interger}</var>
+<arg>${convert_euro}[3]</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:33:56.153" level="INFO">${euro_interger} = 0.877579</msg>
+<status status="PASS" starttime="20230315 16:33:56.153" endtime="20230315 16:33:56.153"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${convert}</var>
+<arg>${convert}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:33:56.153" level="INFO">${convert} = 50.0</msg>
+<status status="PASS" starttime="20230315 16:33:56.153" endtime="20230315 16:33:56.153"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result_convertion}</var>
+<arg>python</arg>
+<arg>-c</arg>
+<arg>print(${euro_interger}*${convert})</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230315 16:33:56.154" level="INFO">Starting process:
+python -c print(0.877579*50.0)</msg>
+<msg timestamp="20230315 16:33:56.157" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230315 16:33:56.214" level="INFO">Process completed.</msg>
+<msg timestamp="20230315 16:33:56.214" level="INFO">${result_convertion} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230315 16:33:56.153" endtime="20230315 16:33:56.214"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${euro_interger}</var>
+<arg>${result_convertion.stdout}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:33:56.214" level="INFO">${euro_interger} = 43.87895</msg>
+<status status="PASS" starttime="20230315 16:33:56.214" endtime="20230315 16:33:56.214"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${euro_interger}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:33:56.215" endtime="20230315 16:33:56.215"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result_convertion}</var>
+<arg>python</arg>
+<arg>-c</arg>
+<arg>print(float("{:.1f}".format(${euro_interger})))</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230315 16:33:56.215" level="INFO">Starting process:
+python -c print(float(\"{:.1f}\".format(43.87895)))</msg>
+<msg timestamp="20230315 16:33:56.219" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230315 16:33:56.280" level="INFO">Process completed.</msg>
+<msg timestamp="20230315 16:33:56.280" level="INFO">${result_convertion} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230315 16:33:56.215" endtime="20230315 16:33:56.280"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${result_convertion.rc}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20230315 16:33:56.280" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20230315 16:33:56.280" endtime="20230315 16:33:56.280"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${result_convertion.stdout}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:33:56.280" endtime="20230315 16:33:56.281"/>
+</kw>
+<kw name="Split String From Right" library="String">
+<var>@{euro}</var>
+<arg>${result_convertion.stdout}</arg>
+<arg>.</arg>
+<doc>Splits the ``string`` using ``separator`` starting from right.</doc>
+<msg timestamp="20230315 16:33:56.282" level="INFO">@{euro} = [ 43 | 9 ]</msg>
+<status status="PASS" starttime="20230315 16:33:56.281" endtime="20230315 16:33:56.282"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${euro}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:33:56.282" endtime="20230315 16:33:56.282"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>(//p[contains(text(), "${euro}[0].")])</arg>
+<arg>${euro}[0]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230315 16:33:56.300" level="INFO">Element '(//p[contains(text(), "43.")])' contains text '43'.</msg>
+<status status="PASS" starttime="20230315 16:33:56.282" endtime="20230315 16:33:56.300"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230315 16:33:56.301" endtime="20230315 16:33:58.401"/>
+</kw>
+<status status="PASS" starttime="20230315 16:33:56.136" endtime="20230315 16:33:58.401"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230315 16:34:03.414" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230315 16:33:58.402" endtime="20230315 16:34:03.414"/>
+</kw>
+<status status="PASS" starttime="20230315 16:33:47.576" endtime="20230315 16:34:03.414"/>
+</iter>
+<iter>
+<var name="${convert}">100</var>
+<kw name="Open Site" library="Currency_Steps">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://www.xe.com/currencyconverter/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230315 16:34:03.419" level="INFO">Opening browser 'chrome' to base url 'https://www.xe.com/currencyconverter/'.</msg>
+<status status="PASS" starttime="20230315 16:34:03.417" endtime="20230315 16:34:07.374"/>
+</kw>
+<status status="PASS" starttime="20230315 16:34:03.416" endtime="20230315 16:34:07.374"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Home.input_amount}</arg>
+<arg>${convert}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230315 16:34:07.375" level="INFO">Typing text '100' into text field 'id:amount'.</msg>
+<status status="PASS" starttime="20230315 16:34:07.374" endtime="20230315 16:34:07.541"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Home.input_from_currency}</arg>
+<arg>EUR</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230315 16:34:07.542" level="INFO">Typing text 'EUR' into text field 'id:midmarketFromCurrency'.</msg>
+<status status="PASS" starttime="20230315 16:34:07.542" endtime="20230315 16:34:07.752"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.ul_from_currency_listbox}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:34:07.752" endtime="20230315 16:34:07.784"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Home.ul_from_currency_listbox}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:34:07.786" level="INFO">Clicking element '//li[@id='midmarketFromCurrency-option-0']'.</msg>
+<status status="PASS" starttime="20230315 16:34:07.784" endtime="20230315 16:34:07.878"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Home.input_to_currency}</arg>
+<arg>GBP</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230315 16:34:07.879" level="INFO">Typing text 'GBP' into text field 'id:midmarketToCurrency'.</msg>
+<status status="PASS" starttime="20230315 16:34:07.878" endtime="20230315 16:34:08.039"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.ul_to_currency_listbox}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:34:08.039" endtime="20230315 16:34:08.102"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Home.ul_to_currency_listbox}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:34:08.103" level="INFO">Clicking element '//li[@id='midmarketToCurrency-option-0']'.</msg>
+<status status="PASS" starttime="20230315 16:34:08.102" endtime="20230315 16:34:08.191"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.button_convert}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:34:08.191" endtime="20230315 16:34:08.228"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Home.button_convert}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:34:08.229" level="INFO">Clicking element '(//button[contains(text(), "Convert")])[3]'.</msg>
+<status status="PASS" starttime="20230315 16:34:08.229" endtime="20230315 16:34:08.402"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230315 16:34:11.412" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230315 16:34:08.402" endtime="20230315 16:34:11.412"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.euro_value}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:34:11.413" endtime="20230315 16:34:11.434"/>
+</kw>
+<kw name="Calculation Result" library="Currency_Steps">
+<arg>${convert}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elem}</var>
+<arg>${Home.euro_value}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:34:11.450" level="INFO">${elem} = 1 EUR = 0.877579 GBP</msg>
+<status status="PASS" starttime="20230315 16:34:11.434" endtime="20230315 16:34:11.450"/>
+</kw>
+<kw name="Split String From Right" library="String">
+<var>@{convert_euro}</var>
+<arg>${elem}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` starting from right.</doc>
+<msg timestamp="20230315 16:34:11.451" level="INFO">@{convert_euro} = [ 1 | EUR | = | 0.877579 | GBP ]</msg>
+<status status="PASS" starttime="20230315 16:34:11.450" endtime="20230315 16:34:11.451"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${euro_interger}</var>
+<arg>${convert_euro}[3]</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:34:11.451" level="INFO">${euro_interger} = 0.877579</msg>
+<status status="PASS" starttime="20230315 16:34:11.451" endtime="20230315 16:34:11.451"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${convert}</var>
+<arg>${convert}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:34:11.451" level="INFO">${convert} = 100.0</msg>
+<status status="PASS" starttime="20230315 16:34:11.451" endtime="20230315 16:34:11.451"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result_convertion}</var>
+<arg>python</arg>
+<arg>-c</arg>
+<arg>print(${euro_interger}*${convert})</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230315 16:34:11.452" level="INFO">Starting process:
+python -c print(0.877579*100.0)</msg>
+<msg timestamp="20230315 16:34:11.455" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230315 16:34:11.512" level="INFO">Process completed.</msg>
+<msg timestamp="20230315 16:34:11.513" level="INFO">${result_convertion} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230315 16:34:11.451" endtime="20230315 16:34:11.513"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${euro_interger}</var>
+<arg>${result_convertion.stdout}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:34:11.513" level="INFO">${euro_interger} = 87.7579</msg>
+<status status="PASS" starttime="20230315 16:34:11.513" endtime="20230315 16:34:11.513"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${euro_interger}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:34:11.513" endtime="20230315 16:34:11.514"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result_convertion}</var>
+<arg>python</arg>
+<arg>-c</arg>
+<arg>print(float("{:.1f}".format(${euro_interger})))</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230315 16:34:11.514" level="INFO">Starting process:
+python -c print(float(\"{:.1f}\".format(87.7579)))</msg>
+<msg timestamp="20230315 16:34:11.518" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230315 16:34:11.579" level="INFO">Process completed.</msg>
+<msg timestamp="20230315 16:34:11.579" level="INFO">${result_convertion} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230315 16:34:11.514" endtime="20230315 16:34:11.579"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${result_convertion.rc}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20230315 16:34:11.579" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20230315 16:34:11.579" endtime="20230315 16:34:11.579"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${result_convertion.stdout}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:34:11.579" endtime="20230315 16:34:11.580"/>
+</kw>
+<kw name="Split String From Right" library="String">
+<var>@{euro}</var>
+<arg>${result_convertion.stdout}</arg>
+<arg>.</arg>
+<doc>Splits the ``string`` using ``separator`` starting from right.</doc>
+<msg timestamp="20230315 16:34:11.581" level="INFO">@{euro} = [ 87 | 8 ]</msg>
+<status status="PASS" starttime="20230315 16:34:11.580" endtime="20230315 16:34:11.581"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${euro}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:34:11.581" endtime="20230315 16:34:11.581"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>(//p[contains(text(), "${euro}[0].")])</arg>
+<arg>${euro}[0]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230315 16:34:11.600" level="INFO">Element '(//p[contains(text(), "87.")])' contains text '87'.</msg>
+<status status="PASS" starttime="20230315 16:34:11.581" endtime="20230315 16:34:11.600"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230315 16:34:11.600" endtime="20230315 16:34:13.679"/>
+</kw>
+<status status="PASS" starttime="20230315 16:34:11.434" endtime="20230315 16:34:13.680"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230315 16:34:18.695" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230315 16:34:13.680" endtime="20230315 16:34:18.695"/>
+</kw>
+<status status="PASS" starttime="20230315 16:34:03.415" endtime="20230315 16:34:18.695"/>
+</iter>
+<iter>
+<var name="${convert}">150</var>
+<kw name="Open Site" library="Currency_Steps">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://www.xe.com/currencyconverter/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230315 16:34:18.696" level="INFO">Opening browser 'chrome' to base url 'https://www.xe.com/currencyconverter/'.</msg>
+<status status="PASS" starttime="20230315 16:34:18.695" endtime="20230315 16:34:32.518"/>
+</kw>
+<status status="PASS" starttime="20230315 16:34:18.695" endtime="20230315 16:34:32.519"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Home.input_amount}</arg>
+<arg>${convert}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230315 16:34:32.520" level="INFO">Typing text '150' into text field 'id:amount'.</msg>
+<status status="PASS" starttime="20230315 16:34:32.519" endtime="20230315 16:34:32.648"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Home.input_from_currency}</arg>
+<arg>EUR</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230315 16:34:32.649" level="INFO">Typing text 'EUR' into text field 'id:midmarketFromCurrency'.</msg>
+<status status="PASS" starttime="20230315 16:34:32.648" endtime="20230315 16:34:32.814"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.ul_from_currency_listbox}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:34:32.814" endtime="20230315 16:34:32.834"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Home.ul_from_currency_listbox}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:34:32.835" level="INFO">Clicking element '//li[@id='midmarketFromCurrency-option-0']'.</msg>
+<status status="PASS" starttime="20230315 16:34:32.834" endtime="20230315 16:34:32.906"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Home.input_to_currency}</arg>
+<arg>GBP</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230315 16:34:32.907" level="INFO">Typing text 'GBP' into text field 'id:midmarketToCurrency'.</msg>
+<status status="PASS" starttime="20230315 16:34:32.906" endtime="20230315 16:34:33.034"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.ul_to_currency_listbox}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:34:33.034" endtime="20230315 16:34:33.087"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Home.ul_to_currency_listbox}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:34:33.087" level="INFO">Clicking element '//li[@id='midmarketToCurrency-option-0']'.</msg>
+<status status="PASS" starttime="20230315 16:34:33.087" endtime="20230315 16:34:33.161"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.button_convert}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:34:33.161" endtime="20230315 16:34:33.180"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Home.button_convert}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:34:33.181" level="INFO">Clicking element '(//button[contains(text(), "Convert")])[3]'.</msg>
+<status status="PASS" starttime="20230315 16:34:33.180" endtime="20230315 16:34:33.423"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230315 16:34:36.434" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230315 16:34:33.423" endtime="20230315 16:34:36.434"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.euro_value}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:34:36.434" endtime="20230315 16:34:36.459"/>
+</kw>
+<kw name="Calculation Result" library="Currency_Steps">
+<arg>${convert}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elem}</var>
+<arg>${Home.euro_value}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:34:36.476" level="INFO">${elem} = 1 EUR = 0.877579 GBP</msg>
+<status status="PASS" starttime="20230315 16:34:36.459" endtime="20230315 16:34:36.476"/>
+</kw>
+<kw name="Split String From Right" library="String">
+<var>@{convert_euro}</var>
+<arg>${elem}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` starting from right.</doc>
+<msg timestamp="20230315 16:34:36.476" level="INFO">@{convert_euro} = [ 1 | EUR | = | 0.877579 | GBP ]</msg>
+<status status="PASS" starttime="20230315 16:34:36.476" endtime="20230315 16:34:36.476"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${euro_interger}</var>
+<arg>${convert_euro}[3]</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:34:36.476" level="INFO">${euro_interger} = 0.877579</msg>
+<status status="PASS" starttime="20230315 16:34:36.476" endtime="20230315 16:34:36.476"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${convert}</var>
+<arg>${convert}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:34:36.477" level="INFO">${convert} = 150.0</msg>
+<status status="PASS" starttime="20230315 16:34:36.476" endtime="20230315 16:34:36.477"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result_convertion}</var>
+<arg>python</arg>
+<arg>-c</arg>
+<arg>print(${euro_interger}*${convert})</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230315 16:34:36.477" level="INFO">Starting process:
+python -c print(0.877579*150.0)</msg>
+<msg timestamp="20230315 16:34:36.481" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230315 16:34:36.542" level="INFO">Process completed.</msg>
+<msg timestamp="20230315 16:34:36.542" level="INFO">${result_convertion} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230315 16:34:36.477" endtime="20230315 16:34:36.542"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${euro_interger}</var>
+<arg>${result_convertion.stdout}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:34:36.542" level="INFO">${euro_interger} = 131.63685</msg>
+<status status="PASS" starttime="20230315 16:34:36.542" endtime="20230315 16:34:36.542"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${euro_interger}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:34:36.542" endtime="20230315 16:34:36.542"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result_convertion}</var>
+<arg>python</arg>
+<arg>-c</arg>
+<arg>print(float("{:.1f}".format(${euro_interger})))</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230315 16:34:36.544" level="INFO">Starting process:
+python -c print(float(\"{:.1f}\".format(131.63685)))</msg>
+<msg timestamp="20230315 16:34:36.547" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230315 16:34:36.607" level="INFO">Process completed.</msg>
+<msg timestamp="20230315 16:34:36.608" level="INFO">${result_convertion} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230315 16:34:36.544" endtime="20230315 16:34:36.608"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${result_convertion.rc}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20230315 16:34:36.608" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20230315 16:34:36.608" endtime="20230315 16:34:36.608"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${result_convertion.stdout}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:34:36.608" endtime="20230315 16:34:36.609"/>
+</kw>
+<kw name="Split String From Right" library="String">
+<var>@{euro}</var>
+<arg>${result_convertion.stdout}</arg>
+<arg>.</arg>
+<doc>Splits the ``string`` using ``separator`` starting from right.</doc>
+<msg timestamp="20230315 16:34:36.610" level="INFO">@{euro} = [ 131 | 6 ]</msg>
+<status status="PASS" starttime="20230315 16:34:36.609" endtime="20230315 16:34:36.610"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${euro}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:34:36.610" endtime="20230315 16:34:36.610"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>(//p[contains(text(), "${euro}[0].")])</arg>
+<arg>${euro}[0]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230315 16:34:36.630" level="INFO">Element '(//p[contains(text(), "131.")])' contains text '131'.</msg>
+<status status="PASS" starttime="20230315 16:34:36.610" endtime="20230315 16:34:36.630"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230315 16:34:36.630" endtime="20230315 16:34:38.713"/>
+</kw>
+<status status="PASS" starttime="20230315 16:34:36.459" endtime="20230315 16:34:38.713"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230315 16:34:43.719" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230315 16:34:38.713" endtime="20230315 16:34:43.719"/>
+</kw>
+<status status="PASS" starttime="20230315 16:34:18.695" endtime="20230315 16:34:43.719"/>
+</iter>
+<iter>
+<var name="${convert}">200</var>
+<kw name="Open Site" library="Currency_Steps">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://www.xe.com/currencyconverter/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230315 16:34:43.719" level="INFO">Opening browser 'chrome' to base url 'https://www.xe.com/currencyconverter/'.</msg>
+<status status="PASS" starttime="20230315 16:34:43.719" endtime="20230315 16:34:48.303"/>
+</kw>
+<status status="PASS" starttime="20230315 16:34:43.719" endtime="20230315 16:34:48.303"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Home.input_amount}</arg>
+<arg>${convert}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230315 16:34:48.304" level="INFO">Typing text '200' into text field 'id:amount'.</msg>
+<status status="PASS" starttime="20230315 16:34:48.303" endtime="20230315 16:34:48.497"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Home.input_from_currency}</arg>
+<arg>EUR</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230315 16:34:48.498" level="INFO">Typing text 'EUR' into text field 'id:midmarketFromCurrency'.</msg>
+<status status="PASS" starttime="20230315 16:34:48.497" endtime="20230315 16:34:48.694"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.ul_from_currency_listbox}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:34:48.694" endtime="20230315 16:34:48.714"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Home.ul_from_currency_listbox}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:34:48.715" level="INFO">Clicking element '//li[@id='midmarketFromCurrency-option-0']'.</msg>
+<status status="PASS" starttime="20230315 16:34:48.714" endtime="20230315 16:34:48.784"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Home.input_to_currency}</arg>
+<arg>GBP</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230315 16:34:48.785" level="INFO">Typing text 'GBP' into text field 'id:midmarketToCurrency'.</msg>
+<status status="PASS" starttime="20230315 16:34:48.784" endtime="20230315 16:34:48.906"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.ul_to_currency_listbox}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:34:48.906" endtime="20230315 16:34:48.955"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Home.ul_to_currency_listbox}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:34:48.956" level="INFO">Clicking element '//li[@id='midmarketToCurrency-option-0']'.</msg>
+<status status="PASS" starttime="20230315 16:34:48.955" endtime="20230315 16:34:49.019"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.button_convert}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:34:49.019" endtime="20230315 16:34:49.038"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Home.button_convert}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:34:49.039" level="INFO">Clicking element '(//button[contains(text(), "Convert")])[3]'.</msg>
+<status status="PASS" starttime="20230315 16:34:49.038" endtime="20230315 16:34:49.240"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230315 16:34:52.251" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230315 16:34:49.241" endtime="20230315 16:34:52.251"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.euro_value}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:34:52.251" endtime="20230315 16:34:52.271"/>
+</kw>
+<kw name="Calculation Result" library="Currency_Steps">
+<arg>${convert}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elem}</var>
+<arg>${Home.euro_value}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:34:52.286" level="INFO">${elem} = 1 EUR = 0.877579 GBP</msg>
+<status status="PASS" starttime="20230315 16:34:52.271" endtime="20230315 16:34:52.286"/>
+</kw>
+<kw name="Split String From Right" library="String">
+<var>@{convert_euro}</var>
+<arg>${elem}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` starting from right.</doc>
+<msg timestamp="20230315 16:34:52.287" level="INFO">@{convert_euro} = [ 1 | EUR | = | 0.877579 | GBP ]</msg>
+<status status="PASS" starttime="20230315 16:34:52.286" endtime="20230315 16:34:52.287"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${euro_interger}</var>
+<arg>${convert_euro}[3]</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:34:52.287" level="INFO">${euro_interger} = 0.877579</msg>
+<status status="PASS" starttime="20230315 16:34:52.287" endtime="20230315 16:34:52.287"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${convert}</var>
+<arg>${convert}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:34:52.287" level="INFO">${convert} = 200.0</msg>
+<status status="PASS" starttime="20230315 16:34:52.287" endtime="20230315 16:34:52.287"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result_convertion}</var>
+<arg>python</arg>
+<arg>-c</arg>
+<arg>print(${euro_interger}*${convert})</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230315 16:34:52.288" level="INFO">Starting process:
+python -c print(0.877579*200.0)</msg>
+<msg timestamp="20230315 16:34:52.291" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230315 16:34:52.349" level="INFO">Process completed.</msg>
+<msg timestamp="20230315 16:34:52.349" level="INFO">${result_convertion} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230315 16:34:52.287" endtime="20230315 16:34:52.349"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${euro_interger}</var>
+<arg>${result_convertion.stdout}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:34:52.350" level="INFO">${euro_interger} = 175.5158</msg>
+<status status="PASS" starttime="20230315 16:34:52.349" endtime="20230315 16:34:52.350"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${euro_interger}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:34:52.350" endtime="20230315 16:34:52.350"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result_convertion}</var>
+<arg>python</arg>
+<arg>-c</arg>
+<arg>print(float("{:.1f}".format(${euro_interger})))</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230315 16:34:52.351" level="INFO">Starting process:
+python -c print(float(\"{:.1f}\".format(175.5158)))</msg>
+<msg timestamp="20230315 16:34:52.354" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230315 16:34:52.414" level="INFO">Process completed.</msg>
+<msg timestamp="20230315 16:34:52.414" level="INFO">${result_convertion} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230315 16:34:52.350" endtime="20230315 16:34:52.414"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${result_convertion.rc}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20230315 16:34:52.414" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20230315 16:34:52.414" endtime="20230315 16:34:52.414"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${result_convertion.stdout}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:34:52.414" endtime="20230315 16:34:52.416"/>
+</kw>
+<kw name="Split String From Right" library="String">
+<var>@{euro}</var>
+<arg>${result_convertion.stdout}</arg>
+<arg>.</arg>
+<doc>Splits the ``string`` using ``separator`` starting from right.</doc>
+<msg timestamp="20230315 16:34:52.416" level="INFO">@{euro} = [ 175 | 5 ]</msg>
+<status status="PASS" starttime="20230315 16:34:52.416" endtime="20230315 16:34:52.416"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${euro}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:34:52.416" endtime="20230315 16:34:52.417"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>(//p[contains(text(), "${euro}[0].")])</arg>
+<arg>${euro}[0]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230315 16:34:52.435" level="INFO">Element '(//p[contains(text(), "175.")])' contains text '175'.</msg>
+<status status="PASS" starttime="20230315 16:34:52.417" endtime="20230315 16:34:52.435"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230315 16:34:52.435" endtime="20230315 16:34:54.565"/>
+</kw>
+<status status="PASS" starttime="20230315 16:34:52.271" endtime="20230315 16:34:54.565"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230315 16:34:59.568" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230315 16:34:54.565" endtime="20230315 16:34:59.568"/>
+</kw>
+<status status="PASS" starttime="20230315 16:34:43.719" endtime="20230315 16:34:59.568"/>
+</iter>
+<iter>
+<var name="${convert}">250</var>
+<kw name="Open Site" library="Currency_Steps">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://www.xe.com/currencyconverter/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230315 16:34:59.571" level="INFO">Opening browser 'chrome' to base url 'https://www.xe.com/currencyconverter/'.</msg>
+<status status="PASS" starttime="20230315 16:34:59.570" endtime="20230315 16:35:04.307"/>
+</kw>
+<status status="PASS" starttime="20230315 16:34:59.569" endtime="20230315 16:35:04.307"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Home.input_amount}</arg>
+<arg>${convert}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230315 16:35:04.308" level="INFO">Typing text '250' into text field 'id:amount'.</msg>
+<status status="PASS" starttime="20230315 16:35:04.307" endtime="20230315 16:35:04.481"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Home.input_from_currency}</arg>
+<arg>EUR</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230315 16:35:04.481" level="INFO">Typing text 'EUR' into text field 'id:midmarketFromCurrency'.</msg>
+<status status="PASS" starttime="20230315 16:35:04.481" endtime="20230315 16:35:04.684"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.ul_from_currency_listbox}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:35:04.684" endtime="20230315 16:35:04.704"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Home.ul_from_currency_listbox}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:35:04.705" level="INFO">Clicking element '//li[@id='midmarketFromCurrency-option-0']'.</msg>
+<status status="PASS" starttime="20230315 16:35:04.704" endtime="20230315 16:35:04.773"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Home.input_to_currency}</arg>
+<arg>GBP</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230315 16:35:04.774" level="INFO">Typing text 'GBP' into text field 'id:midmarketToCurrency'.</msg>
+<status status="PASS" starttime="20230315 16:35:04.773" endtime="20230315 16:35:04.888"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.ul_to_currency_listbox}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:35:04.888" endtime="20230315 16:35:04.938"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Home.ul_to_currency_listbox}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:35:04.939" level="INFO">Clicking element '//li[@id='midmarketToCurrency-option-0']'.</msg>
+<status status="PASS" starttime="20230315 16:35:04.938" endtime="20230315 16:35:05.006"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.button_convert}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:35:05.006" endtime="20230315 16:35:05.023"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Home.button_convert}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:35:05.024" level="INFO">Clicking element '(//button[contains(text(), "Convert")])[3]'.</msg>
+<status status="PASS" starttime="20230315 16:35:05.023" endtime="20230315 16:35:05.259"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230315 16:35:08.268" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230315 16:35:05.260" endtime="20230315 16:35:08.268"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.euro_value}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:35:08.268" endtime="20230315 16:35:08.285"/>
+</kw>
+<kw name="Calculation Result" library="Currency_Steps">
+<arg>${convert}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elem}</var>
+<arg>${Home.euro_value}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:35:08.301" level="INFO">${elem} = 1 EUR = 0.877668 GBP</msg>
+<status status="PASS" starttime="20230315 16:35:08.285" endtime="20230315 16:35:08.301"/>
+</kw>
+<kw name="Split String From Right" library="String">
+<var>@{convert_euro}</var>
+<arg>${elem}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` starting from right.</doc>
+<msg timestamp="20230315 16:35:08.301" level="INFO">@{convert_euro} = [ 1 | EUR | = | 0.877668 | GBP ]</msg>
+<status status="PASS" starttime="20230315 16:35:08.301" endtime="20230315 16:35:08.301"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${euro_interger}</var>
+<arg>${convert_euro}[3]</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:35:08.301" level="INFO">${euro_interger} = 0.877668</msg>
+<status status="PASS" starttime="20230315 16:35:08.301" endtime="20230315 16:35:08.301"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${convert}</var>
+<arg>${convert}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:35:08.301" level="INFO">${convert} = 250.0</msg>
+<status status="PASS" starttime="20230315 16:35:08.301" endtime="20230315 16:35:08.301"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result_convertion}</var>
+<arg>python</arg>
+<arg>-c</arg>
+<arg>print(${euro_interger}*${convert})</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230315 16:35:08.303" level="INFO">Starting process:
+python -c print(0.877668*250.0)</msg>
+<msg timestamp="20230315 16:35:08.305" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230315 16:35:08.365" level="INFO">Process completed.</msg>
+<msg timestamp="20230315 16:35:08.366" level="INFO">${result_convertion} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230315 16:35:08.301" endtime="20230315 16:35:08.366"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${euro_interger}</var>
+<arg>${result_convertion.stdout}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:35:08.366" level="INFO">${euro_interger} = 219.417</msg>
+<status status="PASS" starttime="20230315 16:35:08.366" endtime="20230315 16:35:08.366"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${euro_interger}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:35:08.366" endtime="20230315 16:35:08.367"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result_convertion}</var>
+<arg>python</arg>
+<arg>-c</arg>
+<arg>print(float("{:.1f}".format(${euro_interger})))</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230315 16:35:08.367" level="INFO">Starting process:
+python -c print(float(\"{:.1f}\".format(219.417)))</msg>
+<msg timestamp="20230315 16:35:08.371" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230315 16:35:08.429" level="INFO">Process completed.</msg>
+<msg timestamp="20230315 16:35:08.429" level="INFO">${result_convertion} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230315 16:35:08.367" endtime="20230315 16:35:08.429"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${result_convertion.rc}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20230315 16:35:08.430" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20230315 16:35:08.429" endtime="20230315 16:35:08.430"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${result_convertion.stdout}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:35:08.430" endtime="20230315 16:35:08.431"/>
+</kw>
+<kw name="Split String From Right" library="String">
+<var>@{euro}</var>
+<arg>${result_convertion.stdout}</arg>
+<arg>.</arg>
+<doc>Splits the ``string`` using ``separator`` starting from right.</doc>
+<msg timestamp="20230315 16:35:08.431" level="INFO">@{euro} = [ 219 | 4 ]</msg>
+<status status="PASS" starttime="20230315 16:35:08.431" endtime="20230315 16:35:08.431"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${euro}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:35:08.431" endtime="20230315 16:35:08.431"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>(//p[contains(text(), "${euro}[0].")])</arg>
+<arg>${euro}[0]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230315 16:35:08.451" level="INFO">Element '(//p[contains(text(), "219.")])' contains text '219'.</msg>
+<status status="PASS" starttime="20230315 16:35:08.432" endtime="20230315 16:35:08.451"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230315 16:35:08.451" endtime="20230315 16:35:10.567"/>
+</kw>
+<status status="PASS" starttime="20230315 16:35:08.285" endtime="20230315 16:35:10.567"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230315 16:35:15.572" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230315 16:35:10.568" endtime="20230315 16:35:15.572"/>
+</kw>
+<status status="PASS" starttime="20230315 16:34:59.568" endtime="20230315 16:35:15.572"/>
+</iter>
+<status status="PASS" starttime="20230315 16:33:47.576" endtime="20230315 16:35:15.572"/>
+</for>
+<tag>regressive</tag>
+<status status="PASS" starttime="20230315 16:33:47.576" endtime="20230315 16:35:15.572"/>
+</test>
+<test id="s1-t2" name="Scenario 2: Access site by URL to convert" line="34">
+<for flavor="IN">
+<var>${convert}</var>
+<value>@{converts}</value>
+<iter>
+<var name="${convert}">50</var>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://www.xe.com/currencyconverter/convert/?Amount=${convert}&amp;From=EUR&amp;To=GBP</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230315 16:35:15.574" level="INFO">Opening browser 'chrome' to base url 'https://www.xe.com/currencyconverter/convert/?Amount=50&amp;From=EUR&amp;To=GBP'.</msg>
+<status status="PASS" starttime="20230315 16:35:15.574" endtime="20230315 16:35:20.160"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230315 16:35:23.170" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230315 16:35:20.161" endtime="20230315 16:35:23.170"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.euro_value}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:35:23.170" endtime="20230315 16:35:23.189"/>
+</kw>
+<kw name="Calculation Result" library="Currency_Steps">
+<arg>${convert}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elem}</var>
+<arg>${Home.euro_value}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:35:23.206" level="INFO">${elem} = 1 EUR = 0.877668 GBP</msg>
+<status status="PASS" starttime="20230315 16:35:23.190" endtime="20230315 16:35:23.206"/>
+</kw>
+<kw name="Split String From Right" library="String">
+<var>@{convert_euro}</var>
+<arg>${elem}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` starting from right.</doc>
+<msg timestamp="20230315 16:35:23.206" level="INFO">@{convert_euro} = [ 1 | EUR | = | 0.877668 | GBP ]</msg>
+<status status="PASS" starttime="20230315 16:35:23.206" endtime="20230315 16:35:23.206"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${euro_interger}</var>
+<arg>${convert_euro}[3]</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:35:23.206" level="INFO">${euro_interger} = 0.877668</msg>
+<status status="PASS" starttime="20230315 16:35:23.206" endtime="20230315 16:35:23.206"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${convert}</var>
+<arg>${convert}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:35:23.207" level="INFO">${convert} = 50.0</msg>
+<status status="PASS" starttime="20230315 16:35:23.207" endtime="20230315 16:35:23.207"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result_convertion}</var>
+<arg>python</arg>
+<arg>-c</arg>
+<arg>print(${euro_interger}*${convert})</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230315 16:35:23.207" level="INFO">Starting process:
+python -c print(0.877668*50.0)</msg>
+<msg timestamp="20230315 16:35:23.211" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230315 16:35:23.271" level="INFO">Process completed.</msg>
+<msg timestamp="20230315 16:35:23.271" level="INFO">${result_convertion} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230315 16:35:23.207" endtime="20230315 16:35:23.271"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${euro_interger}</var>
+<arg>${result_convertion.stdout}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:35:23.271" level="INFO">${euro_interger} = 43.8834</msg>
+<status status="PASS" starttime="20230315 16:35:23.271" endtime="20230315 16:35:23.271"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${euro_interger}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:35:23.272" endtime="20230315 16:35:23.272"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result_convertion}</var>
+<arg>python</arg>
+<arg>-c</arg>
+<arg>print(float("{:.1f}".format(${euro_interger})))</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230315 16:35:23.272" level="INFO">Starting process:
+python -c print(float(\"{:.1f}\".format(43.8834)))</msg>
+<msg timestamp="20230315 16:35:23.276" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230315 16:35:23.334" level="INFO">Process completed.</msg>
+<msg timestamp="20230315 16:35:23.334" level="INFO">${result_convertion} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230315 16:35:23.272" endtime="20230315 16:35:23.334"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${result_convertion.rc}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20230315 16:35:23.335" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20230315 16:35:23.334" endtime="20230315 16:35:23.335"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${result_convertion.stdout}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:35:23.335" endtime="20230315 16:35:23.335"/>
+</kw>
+<kw name="Split String From Right" library="String">
+<var>@{euro}</var>
+<arg>${result_convertion.stdout}</arg>
+<arg>.</arg>
+<doc>Splits the ``string`` using ``separator`` starting from right.</doc>
+<msg timestamp="20230315 16:35:23.336" level="INFO">@{euro} = [ 43 | 9 ]</msg>
+<status status="PASS" starttime="20230315 16:35:23.335" endtime="20230315 16:35:23.336"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${euro}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:35:23.336" endtime="20230315 16:35:23.336"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>(//p[contains(text(), "${euro}[0].")])</arg>
+<arg>${euro}[0]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230315 16:35:23.355" level="INFO">Element '(//p[contains(text(), "43.")])' contains text '43'.</msg>
+<status status="PASS" starttime="20230315 16:35:23.336" endtime="20230315 16:35:23.355"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230315 16:35:23.355" endtime="20230315 16:35:25.482"/>
+</kw>
+<status status="PASS" starttime="20230315 16:35:23.189" endtime="20230315 16:35:25.483"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230315 16:35:30.496" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230315 16:35:25.483" endtime="20230315 16:35:30.496"/>
+</kw>
+<status status="PASS" starttime="20230315 16:35:15.574" endtime="20230315 16:35:30.496"/>
+</iter>
+<iter>
+<var name="${convert}">100</var>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://www.xe.com/currencyconverter/convert/?Amount=${convert}&amp;From=EUR&amp;To=GBP</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230315 16:35:30.497" level="INFO">Opening browser 'chrome' to base url 'https://www.xe.com/currencyconverter/convert/?Amount=100&amp;From=EUR&amp;To=GBP'.</msg>
+<status status="PASS" starttime="20230315 16:35:30.497" endtime="20230315 16:35:35.182"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230315 16:35:38.197" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230315 16:35:35.182" endtime="20230315 16:35:38.197"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.euro_value}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:35:38.198" endtime="20230315 16:35:38.217"/>
+</kw>
+<kw name="Calculation Result" library="Currency_Steps">
+<arg>${convert}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elem}</var>
+<arg>${Home.euro_value}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:35:38.234" level="INFO">${elem} = 1 EUR = 0.877668 GBP</msg>
+<status status="PASS" starttime="20230315 16:35:38.218" endtime="20230315 16:35:38.234"/>
+</kw>
+<kw name="Split String From Right" library="String">
+<var>@{convert_euro}</var>
+<arg>${elem}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` starting from right.</doc>
+<msg timestamp="20230315 16:35:38.234" level="INFO">@{convert_euro} = [ 1 | EUR | = | 0.877668 | GBP ]</msg>
+<status status="PASS" starttime="20230315 16:35:38.234" endtime="20230315 16:35:38.234"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${euro_interger}</var>
+<arg>${convert_euro}[3]</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:35:38.235" level="INFO">${euro_interger} = 0.877668</msg>
+<status status="PASS" starttime="20230315 16:35:38.234" endtime="20230315 16:35:38.235"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${convert}</var>
+<arg>${convert}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:35:38.235" level="INFO">${convert} = 100.0</msg>
+<status status="PASS" starttime="20230315 16:35:38.235" endtime="20230315 16:35:38.235"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result_convertion}</var>
+<arg>python</arg>
+<arg>-c</arg>
+<arg>print(${euro_interger}*${convert})</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230315 16:35:38.235" level="INFO">Starting process:
+python -c print(0.877668*100.0)</msg>
+<msg timestamp="20230315 16:35:38.239" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230315 16:35:38.298" level="INFO">Process completed.</msg>
+<msg timestamp="20230315 16:35:38.298" level="INFO">${result_convertion} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230315 16:35:38.235" endtime="20230315 16:35:38.298"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${euro_interger}</var>
+<arg>${result_convertion.stdout}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:35:38.299" level="INFO">${euro_interger} = 87.7668</msg>
+<status status="PASS" starttime="20230315 16:35:38.298" endtime="20230315 16:35:38.299"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${euro_interger}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:35:38.299" endtime="20230315 16:35:38.299"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result_convertion}</var>
+<arg>python</arg>
+<arg>-c</arg>
+<arg>print(float("{:.1f}".format(${euro_interger})))</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230315 16:35:38.300" level="INFO">Starting process:
+python -c print(float(\"{:.1f}\".format(87.7668)))</msg>
+<msg timestamp="20230315 16:35:38.303" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230315 16:35:38.363" level="INFO">Process completed.</msg>
+<msg timestamp="20230315 16:35:38.363" level="INFO">${result_convertion} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230315 16:35:38.299" endtime="20230315 16:35:38.363"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${result_convertion.rc}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20230315 16:35:38.364" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20230315 16:35:38.363" endtime="20230315 16:35:38.364"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${result_convertion.stdout}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:35:38.364" endtime="20230315 16:35:38.365"/>
+</kw>
+<kw name="Split String From Right" library="String">
+<var>@{euro}</var>
+<arg>${result_convertion.stdout}</arg>
+<arg>.</arg>
+<doc>Splits the ``string`` using ``separator`` starting from right.</doc>
+<msg timestamp="20230315 16:35:38.365" level="INFO">@{euro} = [ 87 | 8 ]</msg>
+<status status="PASS" starttime="20230315 16:35:38.365" endtime="20230315 16:35:38.365"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${euro}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:35:38.365" endtime="20230315 16:35:38.366"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>(//p[contains(text(), "${euro}[0].")])</arg>
+<arg>${euro}[0]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230315 16:35:38.384" level="INFO">Element '(//p[contains(text(), "87.")])' contains text '87'.</msg>
+<status status="PASS" starttime="20230315 16:35:38.366" endtime="20230315 16:35:38.384"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230315 16:35:38.385" endtime="20230315 16:35:40.501"/>
+</kw>
+<status status="PASS" starttime="20230315 16:35:38.217" endtime="20230315 16:35:40.501"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230315 16:35:45.505" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230315 16:35:40.501" endtime="20230315 16:35:45.505"/>
+</kw>
+<status status="PASS" starttime="20230315 16:35:30.496" endtime="20230315 16:35:45.505"/>
+</iter>
+<iter>
+<var name="${convert}">150</var>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://www.xe.com/currencyconverter/convert/?Amount=${convert}&amp;From=EUR&amp;To=GBP</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230315 16:35:45.506" level="INFO">Opening browser 'chrome' to base url 'https://www.xe.com/currencyconverter/convert/?Amount=150&amp;From=EUR&amp;To=GBP'.</msg>
+<status status="PASS" starttime="20230315 16:35:45.505" endtime="20230315 16:35:50.632"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230315 16:35:53.633" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230315 16:35:50.632" endtime="20230315 16:35:53.633"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.euro_value}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:35:53.633" endtime="20230315 16:35:53.653"/>
+</kw>
+<kw name="Calculation Result" library="Currency_Steps">
+<arg>${convert}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elem}</var>
+<arg>${Home.euro_value}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:35:53.670" level="INFO">${elem} = 1 EUR = 0.877668 GBP</msg>
+<status status="PASS" starttime="20230315 16:35:53.653" endtime="20230315 16:35:53.670"/>
+</kw>
+<kw name="Split String From Right" library="String">
+<var>@{convert_euro}</var>
+<arg>${elem}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` starting from right.</doc>
+<msg timestamp="20230315 16:35:53.670" level="INFO">@{convert_euro} = [ 1 | EUR | = | 0.877668 | GBP ]</msg>
+<status status="PASS" starttime="20230315 16:35:53.670" endtime="20230315 16:35:53.670"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${euro_interger}</var>
+<arg>${convert_euro}[3]</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:35:53.671" level="INFO">${euro_interger} = 0.877668</msg>
+<status status="PASS" starttime="20230315 16:35:53.670" endtime="20230315 16:35:53.671"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${convert}</var>
+<arg>${convert}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:35:53.671" level="INFO">${convert} = 150.0</msg>
+<status status="PASS" starttime="20230315 16:35:53.671" endtime="20230315 16:35:53.671"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result_convertion}</var>
+<arg>python</arg>
+<arg>-c</arg>
+<arg>print(${euro_interger}*${convert})</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230315 16:35:53.671" level="INFO">Starting process:
+python -c print(0.877668*150.0)</msg>
+<msg timestamp="20230315 16:35:53.675" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230315 16:35:53.734" level="INFO">Process completed.</msg>
+<msg timestamp="20230315 16:35:53.734" level="INFO">${result_convertion} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230315 16:35:53.671" endtime="20230315 16:35:53.734"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${euro_interger}</var>
+<arg>${result_convertion.stdout}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:35:53.735" level="INFO">${euro_interger} = 131.6502</msg>
+<status status="PASS" starttime="20230315 16:35:53.734" endtime="20230315 16:35:53.735"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${euro_interger}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:35:53.735" endtime="20230315 16:35:53.735"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result_convertion}</var>
+<arg>python</arg>
+<arg>-c</arg>
+<arg>print(float("{:.1f}".format(${euro_interger})))</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230315 16:35:53.736" level="INFO">Starting process:
+python -c print(float(\"{:.1f}\".format(131.6502)))</msg>
+<msg timestamp="20230315 16:35:53.739" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230315 16:35:53.800" level="INFO">Process completed.</msg>
+<msg timestamp="20230315 16:35:53.800" level="INFO">${result_convertion} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230315 16:35:53.736" endtime="20230315 16:35:53.800"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${result_convertion.rc}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20230315 16:35:53.801" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20230315 16:35:53.800" endtime="20230315 16:35:53.801"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${result_convertion.stdout}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:35:53.801" endtime="20230315 16:35:53.802"/>
+</kw>
+<kw name="Split String From Right" library="String">
+<var>@{euro}</var>
+<arg>${result_convertion.stdout}</arg>
+<arg>.</arg>
+<doc>Splits the ``string`` using ``separator`` starting from right.</doc>
+<msg timestamp="20230315 16:35:53.802" level="INFO">@{euro} = [ 131 | 7 ]</msg>
+<status status="PASS" starttime="20230315 16:35:53.802" endtime="20230315 16:35:53.802"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${euro}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:35:53.802" endtime="20230315 16:35:53.802"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>(//p[contains(text(), "${euro}[0].")])</arg>
+<arg>${euro}[0]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230315 16:35:53.823" level="INFO">Element '(//p[contains(text(), "131.")])' contains text '131'.</msg>
+<status status="PASS" starttime="20230315 16:35:53.802" endtime="20230315 16:35:53.823"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230315 16:35:53.823" endtime="20230315 16:35:55.936"/>
+</kw>
+<status status="PASS" starttime="20230315 16:35:53.653" endtime="20230315 16:35:55.936"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230315 16:36:00.949" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230315 16:35:55.936" endtime="20230315 16:36:00.949"/>
+</kw>
+<status status="PASS" starttime="20230315 16:35:45.505" endtime="20230315 16:36:00.949"/>
+</iter>
+<iter>
+<var name="${convert}">200</var>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://www.xe.com/currencyconverter/convert/?Amount=${convert}&amp;From=EUR&amp;To=GBP</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230315 16:36:00.949" level="INFO">Opening browser 'chrome' to base url 'https://www.xe.com/currencyconverter/convert/?Amount=200&amp;From=EUR&amp;To=GBP'.</msg>
+<status status="PASS" starttime="20230315 16:36:00.949" endtime="20230315 16:36:04.733"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230315 16:36:07.743" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230315 16:36:04.733" endtime="20230315 16:36:07.743"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.euro_value}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:36:07.743" endtime="20230315 16:36:07.765"/>
+</kw>
+<kw name="Calculation Result" library="Currency_Steps">
+<arg>${convert}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elem}</var>
+<arg>${Home.euro_value}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:36:07.785" level="INFO">${elem} = 1 EUR = 0.877649 GBP</msg>
+<status status="PASS" starttime="20230315 16:36:07.765" endtime="20230315 16:36:07.785"/>
+</kw>
+<kw name="Split String From Right" library="String">
+<var>@{convert_euro}</var>
+<arg>${elem}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` starting from right.</doc>
+<msg timestamp="20230315 16:36:07.785" level="INFO">@{convert_euro} = [ 1 | EUR | = | 0.877649 | GBP ]</msg>
+<status status="PASS" starttime="20230315 16:36:07.785" endtime="20230315 16:36:07.785"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${euro_interger}</var>
+<arg>${convert_euro}[3]</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:36:07.785" level="INFO">${euro_interger} = 0.877649</msg>
+<status status="PASS" starttime="20230315 16:36:07.785" endtime="20230315 16:36:07.785"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${convert}</var>
+<arg>${convert}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:36:07.786" level="INFO">${convert} = 200.0</msg>
+<status status="PASS" starttime="20230315 16:36:07.785" endtime="20230315 16:36:07.786"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result_convertion}</var>
+<arg>python</arg>
+<arg>-c</arg>
+<arg>print(${euro_interger}*${convert})</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230315 16:36:07.786" level="INFO">Starting process:
+python -c print(0.877649*200.0)</msg>
+<msg timestamp="20230315 16:36:07.790" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230315 16:36:07.852" level="INFO">Process completed.</msg>
+<msg timestamp="20230315 16:36:07.852" level="INFO">${result_convertion} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230315 16:36:07.786" endtime="20230315 16:36:07.852"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${euro_interger}</var>
+<arg>${result_convertion.stdout}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:36:07.853" level="INFO">${euro_interger} = 175.5298</msg>
+<status status="PASS" starttime="20230315 16:36:07.852" endtime="20230315 16:36:07.853"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${euro_interger}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:36:07.853" endtime="20230315 16:36:07.853"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result_convertion}</var>
+<arg>python</arg>
+<arg>-c</arg>
+<arg>print(float("{:.1f}".format(${euro_interger})))</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230315 16:36:07.854" level="INFO">Starting process:
+python -c print(float(\"{:.1f}\".format(175.5298)))</msg>
+<msg timestamp="20230315 16:36:07.857" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230315 16:36:07.912" level="INFO">Process completed.</msg>
+<msg timestamp="20230315 16:36:07.912" level="INFO">${result_convertion} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230315 16:36:07.853" endtime="20230315 16:36:07.912"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${result_convertion.rc}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20230315 16:36:07.914" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20230315 16:36:07.913" endtime="20230315 16:36:07.914"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${result_convertion.stdout}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:36:07.914" endtime="20230315 16:36:07.915"/>
+</kw>
+<kw name="Split String From Right" library="String">
+<var>@{euro}</var>
+<arg>${result_convertion.stdout}</arg>
+<arg>.</arg>
+<doc>Splits the ``string`` using ``separator`` starting from right.</doc>
+<msg timestamp="20230315 16:36:07.916" level="INFO">@{euro} = [ 175 | 5 ]</msg>
+<status status="PASS" starttime="20230315 16:36:07.915" endtime="20230315 16:36:07.916"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${euro}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:36:07.916" endtime="20230315 16:36:07.916"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>(//p[contains(text(), "${euro}[0].")])</arg>
+<arg>${euro}[0]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230315 16:36:07.934" level="INFO">Element '(//p[contains(text(), "175.")])' contains text '175'.</msg>
+<status status="PASS" starttime="20230315 16:36:07.916" endtime="20230315 16:36:07.934"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230315 16:36:07.934" endtime="20230315 16:36:10.045"/>
+</kw>
+<status status="PASS" starttime="20230315 16:36:07.765" endtime="20230315 16:36:10.045"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230315 16:36:15.058" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230315 16:36:10.046" endtime="20230315 16:36:15.058"/>
+</kw>
+<status status="PASS" starttime="20230315 16:36:00.949" endtime="20230315 16:36:15.058"/>
+</iter>
+<iter>
+<var name="${convert}">250</var>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://www.xe.com/currencyconverter/convert/?Amount=${convert}&amp;From=EUR&amp;To=GBP</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230315 16:36:15.061" level="INFO">Opening browser 'chrome' to base url 'https://www.xe.com/currencyconverter/convert/?Amount=250&amp;From=EUR&amp;To=GBP'.</msg>
+<status status="PASS" starttime="20230315 16:36:15.059" endtime="20230315 16:36:19.986"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230315 16:36:22.988" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230315 16:36:19.986" endtime="20230315 16:36:22.988"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Home.euro_value}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 16:36:22.988" endtime="20230315 16:36:23.008"/>
+</kw>
+<kw name="Calculation Result" library="Currency_Steps">
+<arg>${convert}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${elem}</var>
+<arg>${Home.euro_value}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230315 16:36:23.025" level="INFO">${elem} = 1 EUR = 0.877649 GBP</msg>
+<status status="PASS" starttime="20230315 16:36:23.008" endtime="20230315 16:36:23.025"/>
+</kw>
+<kw name="Split String From Right" library="String">
+<var>@{convert_euro}</var>
+<arg>${elem}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` starting from right.</doc>
+<msg timestamp="20230315 16:36:23.025" level="INFO">@{convert_euro} = [ 1 | EUR | = | 0.877649 | GBP ]</msg>
+<status status="PASS" starttime="20230315 16:36:23.025" endtime="20230315 16:36:23.025"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${euro_interger}</var>
+<arg>${convert_euro}[3]</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:36:23.026" level="INFO">${euro_interger} = 0.877649</msg>
+<status status="PASS" starttime="20230315 16:36:23.025" endtime="20230315 16:36:23.026"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${convert}</var>
+<arg>${convert}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:36:23.026" level="INFO">${convert} = 250.0</msg>
+<status status="PASS" starttime="20230315 16:36:23.026" endtime="20230315 16:36:23.026"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result_convertion}</var>
+<arg>python</arg>
+<arg>-c</arg>
+<arg>print(${euro_interger}*${convert})</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230315 16:36:23.026" level="INFO">Starting process:
+python -c print(0.877649*250.0)</msg>
+<msg timestamp="20230315 16:36:23.029" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230315 16:36:23.090" level="INFO">Process completed.</msg>
+<msg timestamp="20230315 16:36:23.090" level="INFO">${result_convertion} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230315 16:36:23.026" endtime="20230315 16:36:23.090"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${euro_interger}</var>
+<arg>${result_convertion.stdout}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20230315 16:36:23.090" level="INFO">${euro_interger} = 219.41225</msg>
+<status status="PASS" starttime="20230315 16:36:23.090" endtime="20230315 16:36:23.091"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${euro_interger}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:36:23.091" endtime="20230315 16:36:23.091"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result_convertion}</var>
+<arg>python</arg>
+<arg>-c</arg>
+<arg>print(float("{:.1f}".format(${euro_interger})))</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230315 16:36:23.091" level="INFO">Starting process:
+python -c print(float(\"{:.1f}\".format(219.41225)))</msg>
+<msg timestamp="20230315 16:36:23.095" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230315 16:36:23.157" level="INFO">Process completed.</msg>
+<msg timestamp="20230315 16:36:23.157" level="INFO">${result_convertion} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230315 16:36:23.091" endtime="20230315 16:36:23.157"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${result_convertion.rc}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20230315 16:36:23.158" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20230315 16:36:23.157" endtime="20230315 16:36:23.158"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${result_convertion.stdout}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:36:23.158" endtime="20230315 16:36:23.159"/>
+</kw>
+<kw name="Split String From Right" library="String">
+<var>@{euro}</var>
+<arg>${result_convertion.stdout}</arg>
+<arg>.</arg>
+<doc>Splits the ``string`` using ``separator`` starting from right.</doc>
+<msg timestamp="20230315 16:36:23.159" level="INFO">@{euro} = [ 219 | 4 ]</msg>
+<status status="PASS" starttime="20230315 16:36:23.159" endtime="20230315 16:36:23.159"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${euro}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230315 16:36:23.159" endtime="20230315 16:36:23.160"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>(//p[contains(text(), "${euro}[0].")])</arg>
+<arg>${euro}[0]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230315 16:36:23.178" level="INFO">Element '(//p[contains(text(), "219.")])' contains text '219'.</msg>
+<status status="PASS" starttime="20230315 16:36:23.160" endtime="20230315 16:36:23.178"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230315 16:36:23.178" endtime="20230315 16:36:25.285"/>
+</kw>
+<status status="PASS" starttime="20230315 16:36:23.008" endtime="20230315 16:36:25.285"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230315 16:36:30.291" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230315 16:36:25.285" endtime="20230315 16:36:30.291"/>
+</kw>
+<status status="PASS" starttime="20230315 16:36:15.058" endtime="20230315 16:36:30.291"/>
+</iter>
+<status status="PASS" starttime="20230315 16:35:15.574" endtime="20230315 16:36:30.291"/>
+</for>
+<tag>url</tag>
+<status status="PASS" starttime="20230315 16:35:15.573" endtime="20230315 16:36:30.292"/>
+</test>
+<status status="PASS" starttime="20230315 16:33:47.373" endtime="20230315 16:36:30.298"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">regressive</stat>
+<stat pass="1" fail="0" skip="0">url</stat>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Currency">Currency</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
